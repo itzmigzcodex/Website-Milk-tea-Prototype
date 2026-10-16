@@ -1,0 +1,489 @@
+:root {
+    --primary: #8b5e3c;
+    --primary-dark: #634029;
+    --accent: #f3c6a8;
+    --cream: #fffaf5;
+    --text: #2f241f;
+    --muted: #75665e;
+    --white: #ffffff;
+    --shadow: 0 10px 30px rgba(99, 64, 41, 0.12);
+}
+
+/* =================================
+   RESET
+   ================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    width: 100%;
+}
+
+body {
+    width: 100%;
+    min-width: 0;
+    background: var(--cream);
+    color: var(--text);
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* =================================
+   LINKS
+   ================================= */
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* =================================
+   IMAGES
+   ================================= */
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+/* =================================
+   HEADER
+   ================================= */
+
+header {
+    width: 100%;
+    background: var(--white);
+    box-shadow: 0 2px 12px rgba(47, 36, 31, 0.08);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(12px, 2vw, 30px);
+
+    padding: 1rem 5%;
+
+    position: relative;
+    z-index: 10;
+}
+
+/* Logo */
+
+header #logo {
+    width: clamp(45px, 5vw, 60px);
+    height: clamp(45px, 5vw, 60px);
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+/* Website title */
+
+header h1 {
+    font-size: clamp(1.5rem, 3.5vw, 3rem);
+    line-height: 1.1;
+    margin: 0;
+    white-space: nowrap;
+}
+
+/* Header description */
+
+header > p {
+    max-width: 250px;
+    margin: 0;
+    font-size: clamp(0.8rem, 1.2vw, 1rem);
+}
+
+/* =================================
+   NAVIGATION
+   ================================= */
+
+header nav {
+    margin-left: 10px;
+    flex-shrink: 0;
+}
+
+nav {
+    width: auto;
+}
+
+nav a {
+    color: var(--primary-dark);
+    font-weight: 700;
+    font-size: clamp(0.85rem, 1.2vw, 1rem);
+    transition: color 0.2s ease;
+}
+
+nav a:hover,
+nav a:focus-visible {
+    color: var(--accent);
+}
+
+/* =================================
+   MAIN
+   ================================= */
+
+main {
+    width: min(100%, 1200px);
+    margin: 0 auto;
+
+    padding-left: clamp(1rem, 4vw, 1.5rem);
+    padding-right: clamp(1rem, 4vw, 1.5rem);
+
+    background:
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(255, 170, 200, 0.35),
+            transparent 45%
+        ),
+        radial-gradient(
+            circle at 80% 70%,
+            rgba(255, 210, 170, 0.35),
+            transparent 45%
+        ),
+        var(--cream);
+
+    background-size: 150% 150%;
+    animation: mainAmbience 8s ease-in-out infinite alternate;
+}
+
+/* =================================
+   MAIN BACKGROUND ANIMATION
+   ================================= */
+
+@keyframes mainAmbience {
+    0% {
+        background-position: 0% 0%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 100%;
+    }
+}
+
+/* =================================
+   SECTIONS
+   ================================= */
+
+section {
+    width: 100%;
+    padding: clamp(3rem, 8vw, 5rem) 0;
+    text-align: center;
+}
+
+/* =================================
+   SECTION TITLES
+   ================================= */
+
+.section-title-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: clamp(8px, 2vw, 12px);
+
+    margin-bottom: 1rem;
+
+    width: 100%;
+}
+
+.section-title-container h2 {
+    margin-bottom: 0;
+}
+
+/* About / Contact icons */
+
+#about-logo,
+#contact-logo {
+    width: clamp(40px, 6vw, 60px);
+    height: clamp(40px, 6vw, 60px);
+
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+/* =================================
+   MENU GRID
+   ================================= */
+
+.menu-grid {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+
+    gap: clamp(15px, 3vw, 25px);
+
+    margin-top: 2rem;
+}
+
+/* =================================
+   MENU ITEMS
+   ================================= */
+
+.menu-item {
+    width: 100%;
+    min-width: 0;
+
+    padding: clamp(1rem, 3vw, 1.5rem);
+
+    text-align: center;
+
+    background: rgba(255, 255, 255, 0.55);
+
+    border-radius: 16px;
+
+    box-shadow: var(--shadow);
+}
+
+.menu-item img {
+    width: clamp(70px, 10vw, 100px);
+    height: clamp(70px, 10vw, 100px);
+
+    object-fit: contain;
+
+    margin: 0 auto 1rem;
+}
+
+.menu-item h3 {
+    font-size: clamp(1.1rem, 2vw, 1.4rem);
+}
+
+.menu-item p {
+    font-size: clamp(0.85rem, 1.5vw, 1rem);
+}
+
+/* =================================
+   HEADINGS & TEXT
+   ================================= */
+
+h1,
+h2,
+h3 {
+    color: var(--primary-dark);
+    line-height: 1.2;
+    margin-bottom: 1rem;
+}
+
+h1 {
+    font-size: clamp(1.8rem, 5vw, 4.5rem);
+}
+
+h2 {
+    font-size: clamp(1.8rem, 5vw, 3rem);
+}
+
+p {
+    color: var(--muted);
+    margin-bottom: 1rem;
+
+    overflow-wrap: break-word;
+}
+
+/* =================================
+   BUTTONS
+   ================================= */
+
+button,
+.button,
+.btn {
+    background: var(--primary);
+
+    border: 0;
+    border-radius: 999px;
+
+    color: var(--white);
+
+    cursor: pointer;
+
+    display: inline-block;
+
+    font: inherit;
+    font-weight: 700;
+
+    padding: 0.8rem 1.5rem;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+button:hover,
+.button:hover,
+.btn:hover,
+button:focus-visible,
+.button:focus-visible,
+.btn:focus-visible {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+}
+
+/* =================================
+   FOOTER
+   ================================= */
+
+footer {
+    width: 100%;
+
+    background: var(--primary-dark);
+
+    color: var(--white);
+
+    padding: 2rem 5%;
+
+    text-align: center;
+}
+
+footer p {
+    color: var(--white);
+    margin: 0;
+}
+
+/* =================================
+   TABLET
+   ================================= */
+
+@media (max-width: 1000px) {
+
+    header {
+        flex-wrap: wrap;
+    }
+
+    header > p {
+        max-width: 220px;
+    }
+
+    header nav {
+        width: 100%;
+        text-align: center;
+        margin-left: 0;
+        margin-top: 0.5rem;
+    }
+
+    .menu-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+/* =================================
+   MOBILE
+   ================================= */
+
+@media (max-width: 600px) {
+
+    header {
+        flex-direction: column;
+
+        gap: 0.6rem;
+
+        padding:
+            1rem
+            5%;
+    }
+
+    header #logo {
+        width: 55px;
+        height: 55px;
+    }
+
+    header h1 {
+        white-space: normal;
+        text-align: center;
+        font-size: clamp(1.6rem, 8vw, 2.2rem);
+    }
+
+    header > p {
+        max-width: 90%;
+        text-align: center;
+        font-size: 0.9rem;
+    }
+
+    header nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+
+        gap: 10px;
+
+        margin-top: 0.25rem;
+    }
+
+    /*
+       Hide the "|" characters created
+       by your HTML text nodes.
+    */
+
+    nav a {
+        font-size: 0.9rem;
+    }
+
+    .menu-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .menu-item {
+        padding: 1.25rem;
+    }
+
+    section {
+        padding: 3.5rem 0;
+    }
+
+    .section-title-container {
+        gap: 8px;
+    }
+
+    #about-logo,
+    #contact-logo {
+        width: 45px;
+        height: 45px;
+    }
+}
+
+/* =================================
+   VERY SMALL PHONES
+   ================================= */
+
+@media (max-width: 380px) {
+
+    main {
+        padding-left: 0.8rem;
+        padding-right: 0.8rem;
+    }
+
+    header {
+        padding-left: 4%;
+        padding-right: 4%;
+    }
+
+    header h1 {
+        font-size: 1.5rem;
+    }
+
+    header nav {
+        gap: 7px;
+    }
+
+    nav a {
+        font-size: 0.8rem;
+    }
+
+    section {
+        padding: 3rem 0;
+    }
+
+    .menu-item {
+        padding: 1rem;
+    }
+}
